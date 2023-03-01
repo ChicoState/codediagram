@@ -5,7 +5,7 @@ D2 diagram files to UML diagrams in SVG format.
 
 ## Getting Started
 
-1. Build the container: `docker build -it uml .`
+1. Build the container: `docker build -t uml .`
 2. Run it, binding the location of your .d2 files to the container's **in** volume: `docker run -it -v $(pwd):/in uml`
 
 ## D2 Diagramming
