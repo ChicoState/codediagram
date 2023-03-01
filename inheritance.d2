@@ -1,0 +1,15 @@
+User: {
+    shape: class
+    -username: String
+    -password: String
+    login(uname String, pword String): boolean
+    set_username(uname String): void
+    set_password(pword String): void
+}
+
+Admin: {
+    shape: class
+    -permissions: String
+}
+
+Admin -> User
