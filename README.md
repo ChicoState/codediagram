@@ -1,12 +1,11 @@
 # codediagram
 
-This is a relatively lightweight container that converts
-D2 diagram files to UML diagrams in SVG format.
+This is a relatively lightweight container that converts D2 diagram files to UML diagrams in PNG format.
 
 ## Getting Started
 
 1. Build the container: `docker build -t uml .`
-2. Run it, binding the location of your .d2 files to the container's **in** volume: `docker run -it -v $(pwd):/in uml`
+2. Run it, binding the location of your .d2 files to the container's **source** volume and the location you want the rendered images saved to the container's **render** volume. For example, if your `.d2` files are in the subdirectory `./in` and you want to save them to `./out` then use: ```docker run -it -v "${PWD}/in/":/source -v "${PWD}/out/":/render uml```
 
 ## D2 Diagramming
 

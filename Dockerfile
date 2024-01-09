@@ -1,18 +1,12 @@
-FROM ubuntu:22.04
+FROM terrastruct/d2:latest
 LABEL title="Code Diagram"
 LABEL version=0.1
 ENV WORKDIR=/usr/src
-VOLUME ["/in","/out"]
+VOLUME ["/source","/render"]
 WORKDIR /usr/src
 
-# Install dependencies
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y \
-    curl \
-    make
+# Override d2 entrypoint
+ENTRYPOINT ["/bin/sh","-c"]
 
-# Install D2
-RUN curl -fsSL https://d2lang.com/install.sh | sh -s --
-
-# Run program
-CMD ["sh", "-c", "d2 /in/*.d2"]
+# Render each .d2 file in /source to a .png image in /render
+CMD ["for f in /source/*.d2; do d2 /source/$(basename ${f}) /render/$(basename ${f}).png; done"]
