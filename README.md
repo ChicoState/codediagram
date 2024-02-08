@@ -9,7 +9,25 @@ This is a relatively lightweight container that converts D2 diagram files to UML
 
 ## D2 Diagramming
 
-See [inheritance.d2](inheritance.d2) for an example of a simple UML class diagram with inheritance
+For an example of a simple UML class diagram with inheritance, see:
+
+```
+User: {
+    shape: class
+    -username: String
+    -password: String
+    login(uname String, pword String): boolean
+    set_username(uname String): void
+    set_password(pword String): void
+}
+
+Admin: {
+    shape: class
+    -permissions: String
+}
+
+Admin -> User
+```
 
 * [D2 Cheat Sheet (PDF)](https://github.com/terrastruct/d2/blob/master/docs/assets/cheat_sheet.pdf) for D2 syntax
 
